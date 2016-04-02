@@ -5,7 +5,16 @@
 </ul>
 </div>
 <div id='container'>
-This is links
+  <div ng-repeat="link in data.links">
+  <!-- {{link}} -->
+    <img src='assets/redirect_icon.png'/>
+    <div class='info'>
+      <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
+      <div class='title'>{{link.title}}</div>
+      <div class='original'>{{link.url}}</div>
+      <a href='{{baseUrl}}/{{code}}'>{{link.baseUrl}}/{{link.code}}</a>
+    </div>
+  </div>
 </div>
 
 
