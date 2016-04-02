@@ -55,6 +55,7 @@ module.exports = {
   },
 
   navToLink: function (req, res, next) {
+    console.log('CODE.......', req.params.code);
     findLink({code: req.params.code})
       .then(function (link) {
         if (!link) {

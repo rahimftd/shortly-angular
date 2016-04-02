@@ -6,6 +6,7 @@ angular.module('shortly.links', [])
   $scope.getAll = function () {
     Links.getAll()
       .then(function(links) {
+        sortLinks(links);
         $scope.data.links = links;
       })
       .catch(function (error) {
@@ -13,9 +14,13 @@ angular.module('shortly.links', [])
       });
   };
 
-  // $scope.routeToShorten = function($location) {
-  //   $location.path('/shorten');
-  // };
+  $scope.liveSearchQuery = '';
+
+  var sortLinks = function (links) {
+    links.sort(function (a, b) {
+      return b.visits - a.visits;
+    });
+  };
 
   $scope.getAll();
 });
